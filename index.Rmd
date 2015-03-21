@@ -1,0 +1,79 @@
+---
+title       : Confidence Interval Calculator
+subtitle    : for nearly normal distributions
+author      : Jeff Shilling
+job         : Coursera devdataprod-012
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # {tomorrow, zenburn}
+widgets     : [mathjax]            # {mathjax, quiz, bootstrap}
+mode        : standalone # {selfcontained, standalone, draft}
+knit        : slidify::knit2slides
+--- bg:#CBE7A5
+
+## Why a Conficence Interval (CI) Calculator?
+
+1. People (often bosses) ask for estimates all the time
+2. They typically want a single number, buy you don't typically have all the information
+3. A single point estimate often provides the illusion of precision
+4. It is better all around if you provide a reasonable range
+
+--- bg:#CBE7A5
+
+## Motivating Example
+
+Let's say you have a record of the last 30 times you've performed a particular job and the times have a nearly normal distribution with mean 25 days and standard deviation of 3 days, ~N(25, 3).  The histogram might look something like this:
+```{r, fig.height = 3.5, fig.width = 4, echo = TRUE, fig.align='center'}
+hist(rnorm(30, 25,3))
+```
+
+You could say the task will take 25 days plus or minus 3 (the standard deviation).  But a more accurate answer is to use a confidence interval.
+
+--- bg:#CBE7A5
+
+## Calculating a Confidence Interval
+
+- The Confidence Interval is $\bar x \pm z * s/\sqrt{n}$, where  
+  - $\bar x$ is the sample mean  
+  - $z$ is the z-score for the confidence level (CL)  
+    - at a 90% CL, $Z$ = 1.645  
+    - at a 95% CL, $Z$ = 1.96  
+    - at a 99% CL, $Z$ = 2.58  
+  - $s$ = the sample standard deviation, and  
+  - $n$ = the number of observations in the sample  
+- In this case, $\bar x$ = 25, $s$ = 3, and $n$ = 30. So at a 99% confidence level, the confidence interval is   
+$
+25 \pm 2.58 * 3/sqrt(30) = (23.6, 26.4)
+$
+
+- So the job estimate becomes "I'm 99% sure it will be between 24 and 27 days."  And that's more realistic than committing to exactly 25 days and more accurate than 22 to 28 days.
+
+--- bg:#CBE7A5
+
+## The CI-Calculator
+
+The Confident Interval Calculator ([CI-Calculator] (https://shilling.shinyapps.io/CI-Calculator/)) makes calculating confidence intervals for nearly normal distributions as easy as 1-2-3  
+<img src="./assets/img/CI-Calc.jpg" height=300 align="right">  
+
+1. Launch the the [CI-Calculator] (https://shilling.shinyapps.io/CI-Calculator/) app  
+2. Enter the sample mean, sample standard deviation, and the number of observations  
+3. Select the confidence level you want  
+
+The outputs include  
+- The Standard Error ($s/\sqrt{n}$)
+- The margin of error ($z * s/\sqrt{n}$)
+- And the Lower and Upper bounds of the confidence interval for the nearly normal distribution with the parameters provided as inputs.
+
+--- bg:#CBE7A5
+
+## Planned Improvements
+
+- Add a drop-down box that allows the user to select from the following distributions:
+  - t-distribution  
+  - binomial  
+  - Chi-Squared  
+  - F
+
+- Add a graph of the expected distribution of the means with a range bar showing the confidence interval along the x-axis
+
+
