@@ -9,7 +9,7 @@ hitheme     : tomorrow      # {tomorrow, zenburn}
 widgets     : [mathjax]            # {mathjax, quiz, bootstrap}
 mode        : standalone # {selfcontained, standalone, draft}
 knit        : slidify::knit2slides
---- bg:#CBE7A5
+--- bg:#CBE7A4
 
 ## Why a Conficence Interval (CI) Calculator?
 
@@ -18,7 +18,7 @@ knit        : slidify::knit2slides
 3. A single point estimate often provides the illusion of precision
 4. It is better all around if you provide a reasonable range
 
---- bg:#CBE7A5
+--- bg:#CBE7A4
 
 ## Motivating Example
 
@@ -29,7 +29,7 @@ hist(rnorm(30, 25,3))
 
 You could say the task will take 25 days plus or minus 3 (the standard deviation).  But a more accurate answer is to use a confidence interval.
 
---- bg:#CBE7A5
+--- bg:#CBE7A4
 
 ## Calculating a Confidence Interval
 
@@ -48,7 +48,7 @@ $
 
 - So the job estimate becomes "I'm 99% sure it will be between 24 and 27 days."  And that's more realistic than committing to exactly 25 days and more accurate than 22 to 28 days.
 
---- bg:#CBE7A5
+--- bg:#CBE7A4
 
 ## The CI-Calculator
 
@@ -64,7 +64,7 @@ The outputs include
 - The margin of error ($z * s/\sqrt{n}$)
 - And the Lower and Upper bounds of the confidence interval for the nearly normal distribution with the parameters provided as inputs.
 
---- bg:#CBE7A5
+--- bg:#CBE7A4
 
 ## Planned Improvements
 
